@@ -1,98 +1,110 @@
-from confluent_kafka import Consumer, KafkaException
-import hashlib
+import yaml
 import json
+import hashlib
 import pandas as pd
 from sqlalchemy import create_engine
-from datetime import datetime, timedelta
+from confluent_kafka import Consumer, KafkaException
+from datetime import datetime
 
-# Настройка подключения к базе данных
-db_connection = create_engine('postgresql://username:password@localhost:5432/postgres')
+class DMPProcessor:
+    def __init__(self, config_path, db_connection_string, kafka_config):
+        """Инициализация процессора."""
+        self.config_path = config_path
+        self.db_engine = create_engine(db_connection_string)
+        self.kafka_config = kafka_config
+        self.tables_config = self.load_config()
+        self.consumer = self.setup_kafka_consumer()
 
-# Утилита для создания хэшей
-def create_hash(value):
-    if isinstance(value, (list, tuple)):
-        value = ''.join(map(str, value))
-    return hashlib.sha256(str(value).encode()).hexdigest()
+    def load_config(self):
+        """Загружает конфигурационный файл YAML."""
+        with open(self.config_path, 'r') as file:
+            return yaml.safe_load(file)
 
-# Подготовка данных для хаба
-def prepare_hub_data(new_record, config):
-    return {
-        config["pk"]["as"]: [create_hash(new_record[config["pk"]["from"]])],
-        config["id"]["as"]: [new_record[config["id"]["from"]]],
-        config["load_date"]["as"]: [datetime.utcnow().date()],
-        config["record_source"]["as"]: [config["record_source"]["from"]]
-    }
+    def setup_kafka_consumer(self):
+        """Настраивает Kafka Consumer."""
+        consumer = Consumer(self.kafka_config)
+        topics = list(self.tables_config['tables'].keys())
+        consumer.subscribe(topics)
+        print(f"Subscribed to topics: {topics}")
+        return consumer
 
-# Подготовка данных для сателлита
-def prepare_sat_data(new_record, config):
-    sat_hash = create_hash([new_record[field] for field in config["hashdiff"]["from"]])
-    sat_data = {
-        config["pk"]["as"]: [create_hash(new_record[config["pk"]["from"]])],
-        config["hashdiff"]["as"]: [sat_hash],
-        config["start_time"]["as"]: [resolve_macros(new_record, config["start_time"]["from"])],
-        config["load_date"]["as"]: [datetime.utcnow().date()],
-        config["record_source"]["as"]: [config["record_source"]["from"]]
-    }
-    for column, source in config["adds"].items():
-        sat_data[column] = [resolve_macros(new_record, source)]
-    return sat_data
+    def process_kafka_messages(self):
+        """Обрабатывает сообщения из Kafka."""
+        try:
+            while True:
+                msg = self.consumer.poll(1.0)
+                if msg is None:
+                    continue
+                if msg.error():
+                    print(f"Kafka error: {msg.error()}")
+                    continue
 
-# Подготовка данных для линков
-def prepare_link_data(new_record, link_config, global_config):
-    left_hash = create_hash(new_record[link_config["left_pk"]["from"]])
-    right_hash = create_hash(new_record[link_config["right_pk"]["from"]])
-    link_data = {
-        link_config["pk"]["as"]: [create_hash([left_hash, right_hash])],
-        link_config["left_pk"]["as"]: [left_hash],
-        link_config["right_pk"]["as"]: [right_hash],
-        global_config["load_date"]["as"]: [datetime.utcnow().date()],
-        global_config["record_source"]["as"]: [global_config["record_source"]["from"]]
-    }
-    return link_data
+                topic = msg.topic()
+                message = msg.value().decode('utf-8')
+                print(f"Processing message from topic '{topic}': {message}")
+                self.process_message(topic, message)
+        finally:
+            self.consumer.close()
 
-# Разрешение макросов
-def resolve_macros(data, field):
-    if "#" in field:
-        parts = field.split("#")
-        if len(parts) == 2:
-            return datetime(1970, 1, 1) + timedelta(seconds=data.get(parts[1], 0))
-        elif len(parts) == 3 and parts[1].isdigit():
-            divisor = int(parts[1])
-            return datetime.fromtimestamp(data.get(parts[0], 0) // divisor)
-    return data.get(field)
+    def process_message(self, topic, message):
+        """Обрабатывает сообщение из Kafka."""
+        table_config = self.get_table_config(topic)
+        if not table_config:
+            print(f"No configuration found for topic: {topic}")
+            return
 
-# Функция обработки записей
-def process_record(old_record, new_record, entity_config, schema_name):
-    # Хаб
-    if "hub" in entity_config and old_record is None:
-        hub_data = prepare_hub_data(new_record, entity_config["hub"])
-        pd.DataFrame(hub_data).to_sql(
-            entity_config["hub"]["table"], 
-            db_connection, 
-            schema=schema_name, 
-            index=False, 
-            if_exists="append"
+        data = json.loads(message)
+        self.insert_data(data, table_config)
+
+    def get_table_config(self, topic):
+        """Возвращает конфигурацию таблицы для топика."""
+        return self.tables_config['tables'].get(topic)
+
+    def create_hash(self, value):
+        """Создает хэш из значения."""
+        if isinstance(value, (list, tuple)):
+            value = ''.join(map(str, value))
+        return hashlib.sha256(str(value).encode()).hexdigest()
+
+    def insert_data(self, data, table_config):
+        """Вставляет данные в таблицу."""
+        schema = table_config['schema']
+        table = table_config['table']
+        technical_fields = table_config.get('technical_fields', [])
+
+        # Обогащаем данные техническими полями
+        data['source_system_id'] = 1
+        data['created_at'] = datetime.utcnow()
+        data['version'] = 1
+
+        # Создаем DataFrame
+        df = pd.DataFrame([data])
+
+        # Вставляем в базу данных
+        df.to_sql(
+            table,
+            self.db_engine,
+            schema=schema,
+            if_exists='append',
+            index=False
         )
-    
-    # Сателлит
-    if "sat" in entity_config:
-        sat_data = prepare_sat_data(new_record, entity_config["sat"])
-        pd.DataFrame(sat_data).to_sql(
-            entity_config["sat"]["table"], 
-            db_connection, 
-            schema=schema_name, 
-            index=False, 
-            if_exists="append"
-        )
+        print(f"Data inserted into {schema}.{table}")
 
-    # Линки
-    if "link" in entity_config and old_record is None:
-        for link_config in entity_config["link"]:
-            link_data = prepare_link_data(new_record, link_config, entity_config)
-            pd.DataFrame(link_data).to_sql(
-                link_config["table"], 
-                db_connection, 
-                schema=schema_name, 
-                index=False, 
-                if_exists="append"
-            )
+# Пример использования
+if __name__ == "__main__":
+    # Конфигурация подключения к Kafka
+    kafka_config = {
+        'bootstrap.servers': 'localhost:9092',
+        'group.id': 'dmp-consumer',
+        'auto.offset.reset': 'earliest'
+    }
+
+    # Инициализация процессора
+    processor = DMPProcessor(
+        config_path="dmp_config.yaml",
+        db_connection_string="postgresql://username:password@localhost:5432/postgres",
+        kafka_config=kafka_config
+    )
+
+    # Запуск обработки сообщений
+    processor.process_kafka_messages()

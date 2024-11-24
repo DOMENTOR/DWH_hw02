@@ -1,106 +1,103 @@
-CREATE SCHEMA dwh_detailed;
+CREATE DATABASE IF NOT EXISTS dwh_detailed;
 
+-- Таблица bookings
 CREATE TABLE dwh_detailed.bookings (
-    book_ref CHAR(6) PRIMARY KEY,
-    book_date TIMESTAMPTZ NOT NULL,
-    total_amount NUMERIC(10, 2) NOT NULL,
-    source_system_id INT NOT NULL,
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    version INT DEFAULT 1
-);
+    book_ref String,
+    book_date DateTime,
+    total_amount Decimal(10, 2),
+    source_system_id Int32,
+    created_at DateTime DEFAULT now(),
+    version Int32 DEFAULT 1
+) ENGINE = MergeTree()
+ORDER BY (book_ref);
 
+-- Таблица airports
 CREATE TABLE dwh_detailed.airports (
-    airport_code CHAR(3) PRIMARY KEY,
-    airport_name TEXT NOT NULL,
-    city TEXT NOT NULL,
-    coordinates_lon DOUBLE PRECISION NOT NULL,
-    coordinates_lat DOUBLE PRECISION NOT NULL,
-    timezone TEXT NOT NULL,
-    source_system_id INT NOT NULL,
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    version INT DEFAULT 1
-);
+    airport_code String,
+    airport_name String,
+    city String,
+    coordinates_lon Float64,
+    coordinates_lat Float64,
+    timezone String,
+    source_system_id Int32,
+    created_at DateTime DEFAULT now(),
+    version Int32 DEFAULT 1
+) ENGINE = MergeTree()
+ORDER BY (airport_code);
 
+-- Таблица aircrafts
 CREATE TABLE dwh_detailed.aircrafts (
-    aircraft_code CHAR(3) PRIMARY KEY,
-    model JSONB NOT NULL,
-    range INTEGER NOT NULL,
-    source_system_id INT NOT NULL,
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    version INT DEFAULT 1
-);
+    aircraft_code String,
+    model String,
+    range Int32,
+    source_system_id Int32,
+    created_at DateTime DEFAULT now(),
+    version Int32 DEFAULT 1
+) ENGINE = MergeTree()
+ORDER BY (aircraft_code);
 
+-- Таблица tickets
 CREATE TABLE dwh_detailed.tickets (
-    ticket_no CHAR(13) PRIMARY KEY,
-    book_ref CHAR(6) REFERENCES dwh_detailed.bookings(book_ref),
-    passenger_id VARCHAR(20) NOT NULL,
-    passenger_name TEXT NOT NULL,
-    contact_data JSONB,
-    source_system_id INT NOT NULL,
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    version INT DEFAULT 1
-);
+    ticket_no String,
+    book_ref String,
+    passenger_id String,
+    passenger_name String,
+    contact_data String,
+    source_system_id Int32,
+    created_at DateTime DEFAULT now(),
+    version Int32 DEFAULT 1
+) ENGINE = MergeTree()
+ORDER BY (ticket_no);
 
+-- Таблица flights
 CREATE TABLE dwh_detailed.flights (
-    flight_id SERIAL PRIMARY KEY,
-    flight_no CHAR(6) NOT NULL,
-    scheduled_departure TIMESTAMPTZ NOT NULL,
-    scheduled_arrival TIMESTAMPTZ NOT NULL,
-    departure_airport CHAR(3) NOT NULL,
-    arrival_airport CHAR(3) NOT NULL,
-    status VARCHAR(20) NOT NULL,
-    aircraft_code CHAR(3) NOT NULL,
-    actual_departure TIMESTAMPTZ,
-    actual_arrival TIMESTAMPTZ,
-    source_system_id INT NOT NULL,
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    version INT DEFAULT 1,
-    CONSTRAINT departure_airport_fk FOREIGN KEY (departure_airport) REFERENCES dwh_detailed.airports(airport_code),
-    CONSTRAINT arrival_airport_fk FOREIGN KEY (arrival_airport) REFERENCES dwh_detailed.airports(airport_code),
-    CONSTRAINT aircraft_code_fk FOREIGN KEY (aircraft_code) REFERENCES dwh_detailed.aircrafts(aircraft_code)
-);
+    flight_id UInt32,
+    flight_no String,
+    scheduled_departure DateTime,
+    scheduled_arrival DateTime,
+    departure_airport String,
+    arrival_airport String,
+    status String,
+    aircraft_code String,
+    actual_departure DateTime,
+    actual_arrival DateTime,
+    source_system_id Int32,
+    created_at DateTime DEFAULT now(),
+    version Int32 DEFAULT 1
+) ENGINE = MergeTree()
+ORDER BY (flight_id);
 
+-- Таблица ticket_flights
 CREATE TABLE dwh_detailed.ticket_flights (
-    ticket_no CHAR(13) REFERENCES dwh_detailed.tickets(ticket_no),
-    flight_id INTEGER NOT NULL,
-    fare_conditions VARCHAR(10) NOT NULL,
-    amount NUMERIC(10, 2) NOT NULL,
-    source_system_id INT NOT NULL,
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    version INT DEFAULT 1,
-    PRIMARY KEY (ticket_no, flight_id),
-    CONSTRAINT flight_fk FOREIGN KEY (flight_id) REFERENCES dwh_detailed.flights(flight_id)
-);
+    ticket_no String,
+    flight_id UInt32,
+    fare_conditions String,
+    amount Decimal(10, 2),
+    source_system_id Int32,
+    created_at DateTime DEFAULT now(),
+    version Int32 DEFAULT 1
+) ENGINE = MergeTree()
+ORDER BY (ticket_no, flight_id);
 
+-- Таблица seats
 CREATE TABLE dwh_detailed.seats (
-    aircraft_code CHAR(3) REFERENCES dwh_detailed.aircrafts(aircraft_code),
-    seat_no VARCHAR(4) NOT NULL,
-    fare_conditions VARCHAR(10) NOT NULL,
-    source_system_id INT NOT NULL,
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    version INT DEFAULT 1,
-    PRIMARY KEY (aircraft_code, seat_no)
-);
+    aircraft_code String,
+    seat_no String,
+    fare_conditions String,
+    source_system_id Int32,
+    created_at DateTime DEFAULT now(),
+    version Int32 DEFAULT 1
+) ENGINE = MergeTree()
+ORDER BY (aircraft_code, seat_no);
 
+-- Таблица boarding_passes
 CREATE TABLE dwh_detailed.boarding_passes (
-    ticket_no CHAR(13) REFERENCES dwh_detailed.tickets(ticket_no),
-    flight_id INTEGER REFERENCES dwh_detailed.flights(flight_id),
-    boarding_no INTEGER NOT NULL,
-    seat_no VARCHAR(4) NOT NULL,
-    source_system_id INT NOT NULL,
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    version INT DEFAULT 1,
-    PRIMARY KEY (ticket_no, flight_id),
-    CONSTRAINT seat_fk FOREIGN KEY (seat_no, aircraft_code) REFERENCES dwh_detailed.seats(seat_no, aircraft_code)
-);
-
-
-alter table dwh_detailed.bookings replica identity full;
-alter table dwh_detailed.tickets replica identity full;
-alter table dwh_detailed.ticket_flights  replica identity full;
-alter table dwh_detailed.flights  replica identity full;
-alter table dwh_detailed.airports  replica identity full;
-alter table dwh_detailed.aircrafts  replica identity full;
-alter table dwh_detailed.seats replica identity full;
-alter table dwh_detailed.boarding_passes replica identity full;
-
+    ticket_no String,
+    flight_id UInt32,
+    boarding_no UInt32,
+    seat_no String,
+    source_system_id Int32,
+    created_at DateTime DEFAULT now(),
+    version Int32 DEFAULT 1
+) ENGINE = MergeTree()
+ORDER BY (ticket_no, flight_id);

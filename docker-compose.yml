@@ -153,7 +153,6 @@ services:
   # Debezium UI для визуализации
   debezium-ui:
     image: quay.io/debezium/debezium-ui:2.1
-    # image: debezium/debezium-ui:latest
     restart: always
     container_name: debezium-ui
     hostname: debezium-ui
@@ -164,9 +163,6 @@ services:
       - '8080:8080'
     environment:
       KAFKA_CONNECT_URIS: http://debezium:8083
-      #CONFIG_STORAGE_TOPIC: connect_configs
-      #STATUS_STORAGE_TOPIC: connect_statuses
-      #OFFSET_STORAGE_TOPIC: connect_offsets
 
   # Schema Registry для работы с Avro
   schema-registry:
@@ -224,7 +220,6 @@ services:
       KEY_CONVERTER: org.apache.kafka.connect.json.JsonConverter
       VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
 
-
   clickhouse:
     image: bitnami/clickhouse:latest
     environment:
@@ -239,3 +234,22 @@ services:
       - '9004:9004'
       - '9005:9005'
       - '9009:9009'
+
+  # DMP-сервис
+  dmp:
+    build:
+      context: .
+      dockerfile: Dockerfile.dmp
+    container_name: dmp
+    hostname: dmp
+    depends_on:
+      broker:
+        condition: service_healthy
+      postgres_dwh:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    command: python dmp.py
+    environment:
+      - KAFKA_BROKER=broker:9092
+      - DWH_CONNECTION_STRING=postgresql://username:password@postgres_dwh:5432/postgres
