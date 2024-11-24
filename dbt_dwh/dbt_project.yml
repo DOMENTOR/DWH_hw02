@@ -1,0 +1,50 @@
+name: dbt_dwh
+profile: dbt_dwh
+version: '1.0.0'
+config-version: 2
+
+profile: 'dbt_dwh'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+vars:
+  load_date: '1992-01-01'
+  # tpch_size: 10 #1, 10, 100, 1000, 10000
+  
+models:
+  dbt_dwh:
+    raw:
+      tags:
+        - 'raw'
+      materialized: view
+      +schema: dbt_detailed
+    stage:
+      tags:
+        - 'stage'
+      enabled: true
+      materialized: view
+      +schema: dbt_detailed
+    raw_vault:
+      +schema: dbt_detailed
+      tags:
+        - 'raw_vault'
+      materialized: incremental
+      hubs:
+        tags:
+          - 'hub'
+      links:
+        tags:
+          - 'links'
+      sats:
+        tags:
+          - 'satellite'    
+
+clean-targets:
+    - "target"
+    - "dbt_packages"
+  

@@ -1,0 +1,250 @@
+[0m18:57:51.713752 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023A64EC8770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023A63FE0950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023A63FE1C40>]}
+
+
+============================== 18:57:51.720078 | ca395890-ad26-4b71-91ce-8344d1b8daa7 ==============================
+[0m18:57:51.720078 [info ] [MainThread]: Running with dbt=1.8.9
+[0m18:57:51.721439 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'C:\\Users\\d_tru\\Downloads\\D\\gruzi_suda_uchebu\\FTIAD_true\\DWH\\DWH_hw02-main\\dbt_dwh\\logs', 'profiles_dir': 'C:\\Users\\d_tru\\.dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run -m tag:hub', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m18:57:51.991544 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ca395890-ad26-4b71-91ce-8344d1b8daa7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023A6515C440>]}
+[0m18:57:52.052659 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ca395890-ad26-4b71-91ce-8344d1b8daa7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023A64D14440>]}
+[0m18:57:52.054661 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m18:57:52.238968 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found 1 package(s) specified in packages.yml, but only 0 package(s) installed in dbt_packages. Run "dbt deps" to install package dependencies.
+[0m18:57:52.240552 [debug] [MainThread]: Command `dbt run` failed at 18:57:52.239987 after 0.73 seconds
+[0m18:57:52.241100 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023A64ECBE90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023A6513B920>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023A6520A150>]}
+[0m18:57:52.241651 [debug] [MainThread]: Flushing usage events
+[0m18:58:06.241291 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002385EEBA1B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002385F7508C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002385F752480>]}
+
+
+============================== 18:58:06.245667 | ee8d88f8-3bf4-45c4-89d2-bf9069b70421 ==============================
+[0m18:58:06.245667 [info ] [MainThread]: Running with dbt=1.8.9
+[0m18:58:06.246667 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\d_tru\\.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'C:\\Users\\d_tru\\Downloads\\D\\gruzi_suda_uchebu\\FTIAD_true\\DWH\\DWH_hw02-main\\dbt_dwh\\logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt deps', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m18:58:06.437224 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ee8d88f8-3bf4-45c4-89d2-bf9069b70421', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002385F89AE40>]}
+[0m18:58:06.471752 [debug] [MainThread]: Set downloads directory='C:\Users\d_tru\AppData\Local\Temp\dbt-downloads-buh_j7l5'
+[0m18:58:06.472837 [debug] [MainThread]: Executing "git clone --depth 1 https://github.com/kzzzr/dbtvault.git 8f67def39d1e3209f86c5b38b1f63392"
+[0m18:58:07.870621 [debug] [MainThread]: STDOUT: "b''"
+[0m18:58:07.871194 [debug] [MainThread]: STDERR: "b"Cloning into '8f67def39d1e3209f86c5b38b1f63392'...\n""
+[0m18:58:07.871746 [debug] [MainThread]: Pulling new dependency 8f67def39d1e3209f86c5b38b1f63392.
+[0m18:58:07.872310 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m18:58:07.902897 [debug] [MainThread]: STDOUT: "b'8ee9ee882a9b3f3e4c334b38ef6460eafc12af06\n'"
+[0m18:58:07.903437 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:07.903992 [debug] [MainThread]: Checking out revision master.
+[0m18:58:07.904550 [debug] [MainThread]: Executing "git remote set-branches origin master"
+[0m18:58:07.942352 [debug] [MainThread]: STDOUT: "b''"
+[0m18:58:07.942891 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:07.943434 [debug] [MainThread]: Executing "git fetch origin --depth 1 --tags master"
+[0m18:58:09.666731 [debug] [MainThread]: STDOUT: "b''"
+[0m18:58:09.667936 [debug] [MainThread]: STDERR: "b'From https://github.com/kzzzr/dbtvault\n * branch            master     -> FETCH_HEAD\n * [new tag]         v0.1-pre   -> v0.1-pre\n * [new tag]         v0.2-pre   -> v0.2-pre\n * [new tag]         v0.2.1-pre -> v0.2.1-pre\n * [new tag]         v0.2.2-pre -> v0.2.2-pre\n * [new tag]         v0.2.3-pre -> v0.2.3-pre\n * [new tag]         v0.2.4-pre -> v0.2.4-pre\n * [new tag]         v0.3-pre   -> v0.3-pre\n * [new tag]         v0.3.1-pre -> v0.3.1-pre\n * [new tag]         v0.3.2-pre -> v0.3.2-pre\n * [new tag]         v0.3.3-pre -> v0.3.3-pre\n * [new tag]         v0.4       -> v0.4\n * [new tag]         v0.4.1     -> v0.4.1\n * [new tag]         v0.5       -> v0.5\n * [new tag]         v0.6       -> v0.6\n * [new tag]         v0.6-b1    -> v0.6-b1\n * [new tag]         v0.6-b2    -> v0.6-b2\n * [new tag]         v0.6.1     -> v0.6.1\n * [new tag]         v0.6.2     -> v0.6.2\n * [new tag]         v0.7.0     -> v0.7.0\n * [new tag]         v0.7.1     -> v0.7.1\n * [new tag]         v0.7.2     -> v0.7.2\n * [new tag]         v0.7.3     -> v0.7.3\n'"
+[0m18:58:09.668478 [debug] [MainThread]: Executing "git tag --list"
+[0m18:58:09.700117 [debug] [MainThread]: STDOUT: "b'v0.1-pre\nv0.2-pre\nv0.2.1-pre\nv0.2.2-pre\nv0.2.3-pre\nv0.2.4-pre\nv0.3-pre\nv0.3.1-pre\nv0.3.2-pre\nv0.3.3-pre\nv0.4\nv0.4.1\nv0.5\nv0.6\nv0.6-b1\nv0.6-b2\nv0.6.1\nv0.6.2\nv0.7.0\nv0.7.1\nv0.7.2\nv0.7.3\n'"
+[0m18:58:09.700117 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:09.701503 [debug] [MainThread]: Executing "git reset --hard origin/master"
+[0m18:58:09.760923 [debug] [MainThread]: STDOUT: "b'HEAD is now at 8ee9ee8 Adapt to Greenplum\n'"
+[0m18:58:09.761507 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:09.762073 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m18:58:09.790824 [debug] [MainThread]: STDOUT: "b'8ee9ee882a9b3f3e4c334b38ef6460eafc12af06\n'"
+[0m18:58:09.790824 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:09.791826 [debug] [MainThread]: Checked out at 8ee9ee8.
+[0m18:58:09.791826 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m18:58:09.821124 [debug] [MainThread]: STDOUT: "b'8ee9ee882a9b3f3e4c334b38ef6460eafc12af06\n'"
+[0m18:58:09.822132 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:09.846117 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m18:58:10.404336 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m18:58:10.405561 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
+[0m18:58:10.683235 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
+[0m18:58:10.693847 [debug] [MainThread]: Executing "git clone --depth 1 https://github.com/kzzzr/dbtvault.git 8f67def39d1e3209f86c5b38b1f63392"
+[0m18:58:10.721759 [debug] [MainThread]: STDOUT: "b''"
+[0m18:58:10.722868 [debug] [MainThread]: STDERR: "b"fatal: destination path '8f67def39d1e3209f86c5b38b1f63392' already exists and is not an empty directory.\n""
+[0m18:58:10.723944 [debug] [MainThread]: command return code=128
+[0m18:58:10.725027 [debug] [MainThread]: Updating existing dependency 8f67def39d1e3209f86c5b38b1f63392.
+[0m18:58:10.725027 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m18:58:10.752890 [debug] [MainThread]: STDOUT: "b'8ee9ee882a9b3f3e4c334b38ef6460eafc12af06\n'"
+[0m18:58:10.753426 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:10.753965 [debug] [MainThread]: Checking out revision master.
+[0m18:58:10.754505 [debug] [MainThread]: Executing "git remote set-branches origin master"
+[0m18:58:10.790837 [debug] [MainThread]: STDOUT: "b''"
+[0m18:58:10.792210 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:10.792210 [debug] [MainThread]: Executing "git fetch origin --depth 1 --tags master"
+[0m18:58:11.875222 [debug] [MainThread]: STDOUT: "b''"
+[0m18:58:11.875824 [debug] [MainThread]: STDERR: "b'From https://github.com/kzzzr/dbtvault\n * branch            master     -> FETCH_HEAD\n'"
+[0m18:58:11.876887 [debug] [MainThread]: Executing "git tag --list"
+[0m18:58:11.909948 [debug] [MainThread]: STDOUT: "b'v0.1-pre\nv0.2-pre\nv0.2.1-pre\nv0.2.2-pre\nv0.2.3-pre\nv0.2.4-pre\nv0.3-pre\nv0.3.1-pre\nv0.3.2-pre\nv0.3.3-pre\nv0.4\nv0.4.1\nv0.5\nv0.6\nv0.6-b1\nv0.6-b2\nv0.6.1\nv0.6.2\nv0.7.0\nv0.7.1\nv0.7.2\nv0.7.3\n'"
+[0m18:58:11.911182 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:11.911723 [debug] [MainThread]: Executing "git reset --hard origin/master"
+[0m18:58:11.958035 [debug] [MainThread]: STDOUT: "b'HEAD is now at 8ee9ee8 Adapt to Greenplum\n'"
+[0m18:58:11.958582 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:11.959679 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m18:58:11.991361 [debug] [MainThread]: STDOUT: "b'8ee9ee882a9b3f3e4c334b38ef6460eafc12af06\n'"
+[0m18:58:11.992376 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:11.993375 [debug] [MainThread]: Already at 8ee9ee8, nothing to do.
+[0m18:58:11.993375 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m18:58:12.027766 [debug] [MainThread]: STDOUT: "b'8ee9ee882a9b3f3e4c334b38ef6460eafc12af06\n'"
+[0m18:58:12.028864 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:12.051946 [info ] [MainThread]: Updating lock file in file path: C:\Users\d_tru\Downloads\D\gruzi_suda_uchebu\FTIAD_true\DWH\DWH_hw02-main\dbt_dwh/package-lock.yml
+[0m18:58:12.067995 [debug] [MainThread]: Set downloads directory='C:\Users\d_tru\AppData\Local\Temp\dbt-downloads-h22vyl9p'
+[0m18:58:12.071437 [info ] [MainThread]: Installing https://github.com/kzzzr/dbtvault.git
+[0m18:58:12.072291 [debug] [MainThread]: Executing "git clone --depth 1 https://github.com/kzzzr/dbtvault.git 8f67def39d1e3209f86c5b38b1f63392"
+[0m18:58:13.323772 [debug] [MainThread]: STDOUT: "b''"
+[0m18:58:13.324852 [debug] [MainThread]: STDERR: "b"Cloning into '8f67def39d1e3209f86c5b38b1f63392'...\n""
+[0m18:58:13.325390 [debug] [MainThread]: Pulling new dependency 8f67def39d1e3209f86c5b38b1f63392.
+[0m18:58:13.325390 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m18:58:13.354796 [debug] [MainThread]: STDOUT: "b'8ee9ee882a9b3f3e4c334b38ef6460eafc12af06\n'"
+[0m18:58:13.355343 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:13.355343 [debug] [MainThread]: Checking out revision 8ee9ee882a9b3f3e4c334b38ef6460eafc12af06.
+[0m18:58:13.356351 [debug] [MainThread]: Executing "git fetch origin --depth 1 8ee9ee882a9b3f3e4c334b38ef6460eafc12af06"
+[0m18:58:14.416026 [debug] [MainThread]: STDOUT: "b''"
+[0m18:58:14.417092 [debug] [MainThread]: STDERR: "b'From https://github.com/kzzzr/dbtvault\n * branch            8ee9ee882a9b3f3e4c334b38ef6460eafc12af06 -> FETCH_HEAD\n'"
+[0m18:58:14.417619 [debug] [MainThread]: Executing "git reset --hard 8ee9ee882a9b3f3e4c334b38ef6460eafc12af06"
+[0m18:58:14.476913 [debug] [MainThread]: STDOUT: "b'HEAD is now at 8ee9ee8 Adapt to Greenplum\n'"
+[0m18:58:14.477496 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:14.478984 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m18:58:14.509627 [debug] [MainThread]: STDOUT: "b'8ee9ee882a9b3f3e4c334b38ef6460eafc12af06\n'"
+[0m18:58:14.510622 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:14.510622 [debug] [MainThread]: Checked out at 8ee9ee8.
+[0m18:58:14.510622 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m18:58:14.539874 [debug] [MainThread]: STDOUT: "b'8ee9ee882a9b3f3e4c334b38ef6460eafc12af06\n'"
+[0m18:58:14.540390 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:14.544627 [debug] [MainThread]: Executing "git clone --depth 1 https://github.com/kzzzr/dbtvault.git 8f67def39d1e3209f86c5b38b1f63392"
+[0m18:58:14.572375 [debug] [MainThread]: STDOUT: "b''"
+[0m18:58:14.572375 [debug] [MainThread]: STDERR: "b"fatal: destination path '8f67def39d1e3209f86c5b38b1f63392' already exists and is not an empty directory.\n""
+[0m18:58:14.573800 [debug] [MainThread]: command return code=128
+[0m18:58:14.573800 [debug] [MainThread]: Updating existing dependency 8f67def39d1e3209f86c5b38b1f63392.
+[0m18:58:14.574797 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m18:58:14.603407 [debug] [MainThread]: STDOUT: "b'8ee9ee882a9b3f3e4c334b38ef6460eafc12af06\n'"
+[0m18:58:14.604601 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:14.604601 [debug] [MainThread]: Checking out revision 8ee9ee882a9b3f3e4c334b38ef6460eafc12af06.
+[0m18:58:14.604601 [debug] [MainThread]: Executing "git fetch origin --depth 1 8ee9ee882a9b3f3e4c334b38ef6460eafc12af06"
+[0m18:58:15.586738 [debug] [MainThread]: STDOUT: "b''"
+[0m18:58:15.587269 [debug] [MainThread]: STDERR: "b'From https://github.com/kzzzr/dbtvault\n * branch            8ee9ee882a9b3f3e4c334b38ef6460eafc12af06 -> FETCH_HEAD\n'"
+[0m18:58:15.587829 [debug] [MainThread]: Executing "git reset --hard 8ee9ee882a9b3f3e4c334b38ef6460eafc12af06"
+[0m18:58:15.628554 [debug] [MainThread]: STDOUT: "b'HEAD is now at 8ee9ee8 Adapt to Greenplum\n'"
+[0m18:58:15.629077 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:15.629620 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m18:58:15.658953 [debug] [MainThread]: STDOUT: "b'8ee9ee882a9b3f3e4c334b38ef6460eafc12af06\n'"
+[0m18:58:15.659482 [debug] [MainThread]: STDERR: "b''"
+[0m18:58:15.660140 [debug] [MainThread]: Already at 8ee9ee8, nothing to do.
+[0m18:58:15.662304 [info ] [MainThread]: Installed from revision 8ee9ee882a9b3f3e4c334b38ef6460eafc12af06
+[0m18:58:15.663480 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'ee8d88f8-3bf4-45c4-89d2-bf9069b70421', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023860D55220>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002385FD28A70>]}
+[0m18:58:15.664023 [info ] [MainThread]: Installing dbt-labs/dbt_utils
+[0m18:58:16.592878 [info ] [MainThread]: Installed from version 1.3.0
+[0m18:58:16.593658 [info ] [MainThread]: Up to date!
+[0m18:58:16.594821 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'ee8d88f8-3bf4-45c4-89d2-bf9069b70421', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002385F7E0EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002385F8EA4E0>]}
+[0m18:58:16.596975 [debug] [MainThread]: Command `dbt deps` succeeded at 18:58:16.596440 after 10.53 seconds
+[0m18:58:16.596975 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002385F7BA300>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002385F6B2D20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002385FA13650>]}
+[0m18:58:16.597501 [debug] [MainThread]: Flushing usage events
+[0m18:58:26.348963 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014969939340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001496D34EA20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001496D6172F0>]}
+
+
+============================== 18:58:26.354022 | e681b3d9-ae9f-40ef-8405-024ccc490cf9 ==============================
+[0m18:58:26.354022 [info ] [MainThread]: Running with dbt=1.8.9
+[0m18:58:26.354993 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\d_tru\\.dbt', 'log_path': 'C:\\Users\\d_tru\\Downloads\\D\\gruzi_suda_uchebu\\FTIAD_true\\DWH\\DWH_hw02-main\\dbt_dwh\\logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt run -m tag:hub', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m18:58:26.618070 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e681b3d9-ae9f-40ef-8405-024ccc490cf9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001496E94C6E0>]}
+[0m18:58:26.692552 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e681b3d9-ae9f-40ef-8405-024ccc490cf9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001496D40A4B0>]}
+[0m18:58:26.694190 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m18:58:26.898762 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m18:58:26.900775 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m18:58:26.905032 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'e681b3d9-ae9f-40ef-8405-024ccc490cf9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001496EA57DD0>]}
+[0m18:58:30.630522 [error] [MainThread]: Encountered an error:
+Compilation Error in model link_aircrafts_seats (models\raw_vault\links\link_aircrafts_seats.sql)
+  macro 'dbt_macro__link' takes no keyword argument 'src_nk'
+[0m18:58:30.632165 [debug] [MainThread]: Command `dbt run` failed at 18:58:30.632165 after 4.46 seconds
+[0m18:58:30.632708 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014969939340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001496ED27830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001496EA18F50>]}
+[0m18:58:30.633257 [debug] [MainThread]: Flushing usage events
+[0m19:01:26.071595 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9ED524F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9ECA58110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9ECA595E0>]}
+
+
+============================== 19:01:26.076943 | b81152bb-3ba0-4904-9168-fe6b8b246ada ==============================
+[0m19:01:26.076943 [info ] [MainThread]: Running with dbt=1.8.9
+[0m19:01:26.078015 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'C:\\Users\\d_tru\\Downloads\\D\\gruzi_suda_uchebu\\FTIAD_true\\DWH\\DWH_hw02-main\\dbt_dwh\\logs', 'debug': 'False', 'profiles_dir': 'C:\\Users\\d_tru\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt run -m tag:hub', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m19:01:26.325370 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'b81152bb-3ba0-4904-9168-fe6b8b246ada', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9F0B84080>]}
+[0m19:01:26.385890 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'b81152bb-3ba0-4904-9168-fe6b8b246ada', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9EE3E5640>]}
+[0m19:01:26.387896 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m19:01:26.589275 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m19:01:26.592095 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m19:01:26.593707 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'b81152bb-3ba0-4904-9168-fe6b8b246ada', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9F0B4F080>]}
+[0m19:01:28.554655 [error] [MainThread]: Encountered an error:
+Compilation Error in model link_boarding_passes (models\raw_vault\links\link_boarding_passes.sql)
+  macro 'dbt_macro__link' takes no keyword argument 'src_nk'
+[0m19:01:28.556181 [debug] [MainThread]: Command `dbt run` failed at 19:01:28.556181 after 2.67 seconds
+[0m19:01:28.556181 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9ED524F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9F2081970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E9F1EA0CB0>]}
+[0m19:01:28.557201 [debug] [MainThread]: Flushing usage events
+[0m19:03:26.029652 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024CC4A853D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024CCA0E6B40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024CCA5952E0>]}
+
+
+============================== 19:03:26.034863 | 6419a5d8-666b-41ca-8205-c0c903f10213 ==============================
+[0m19:03:26.034863 [info ] [MainThread]: Running with dbt=1.8.9
+[0m19:03:26.035975 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'C:\\Users\\d_tru\\Downloads\\D\\gruzi_suda_uchebu\\FTIAD_true\\DWH\\DWH_hw02-main\\dbt_dwh\\logs', 'debug': 'False', 'profiles_dir': 'C:\\Users\\d_tru\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run -m tag:hub', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m19:03:26.282707 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '6419a5d8-666b-41ca-8205-c0c903f10213', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024CCB255FD0>]}
+[0m19:03:26.343838 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '6419a5d8-666b-41ca-8205-c0c903f10213', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024CCB257800>]}
+[0m19:03:26.346569 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m19:03:26.562357 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m19:03:26.564590 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m19:03:26.565699 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '6419a5d8-666b-41ca-8205-c0c903f10213', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024CCB303F80>]}
+[0m19:03:28.587088 [error] [MainThread]: Encountered an error:
+Compilation Error in model link_aircrafts_seats (models\raw_vault\links\link_aircrafts_seats.sql)
+  invalid syntax for function call expression
+    line 7
+      {{ automate_dv.link(
+[0m19:03:28.589208 [debug] [MainThread]: Command `dbt run` failed at 19:03:28.588680 after 2.76 seconds
+[0m19:03:28.589738 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024CCAF8C0E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024CCC5B1970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024CCB0CE930>]}
+[0m19:03:28.589738 [debug] [MainThread]: Flushing usage events
+[0m19:05:34.415791 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A575D4F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A56BA95B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A5A2720F0>]}
+
+
+============================== 19:05:34.420692 | cd7b9db9-9420-4ea8-8c4f-e49cc5c4ad29 ==============================
+[0m19:05:34.420692 [info ] [MainThread]: Running with dbt=1.8.9
+[0m19:05:34.421819 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\d_tru\\.dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': 'C:\\Users\\d_tru\\Downloads\\D\\gruzi_suda_uchebu\\FTIAD_true\\DWH\\DWH_hw02-main\\dbt_dwh\\logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt run -m tag:hub', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m19:05:34.674997 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'cd7b9db9-9420-4ea8-8c4f-e49cc5c4ad29', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A5AC14440>]}
+[0m19:05:34.743026 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'cd7b9db9-9420-4ea8-8c4f-e49cc5c4ad29', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A59D49130>]}
+[0m19:05:34.744635 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m19:05:34.940056 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m19:05:34.942318 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m19:05:34.942879 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'cd7b9db9-9420-4ea8-8c4f-e49cc5c4ad29', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A5AAA4170>]}
+[0m19:05:36.925080 [error] [MainThread]: Encountered an error:
+Compilation Error in model link_boarding_passes (models\raw_vault\links\link_boarding_passes.sql)
+  invalid syntax for function call expression
+    line 7
+      {{ automate_dv.link(
+[0m19:05:36.926087 [debug] [MainThread]: Command `dbt run` failed at 19:05:36.926087 after 2.69 seconds
+[0m19:05:36.927076 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A5A663980>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A5ABBFCB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A5C185850>]}
+[0m19:05:36.927076 [debug] [MainThread]: Flushing usage events
+[0m19:05:56.548389 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260152BED80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026015743830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260152E52E0>]}
+
+
+============================== 19:05:56.553987 | 66acc2f7-0f77-4590-967a-4a4567892600 ==============================
+[0m19:05:56.553987 [info ] [MainThread]: Running with dbt=1.8.9
+[0m19:05:56.555098 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'C:\\Users\\d_tru\\Downloads\\D\\gruzi_suda_uchebu\\FTIAD_true\\DWH\\DWH_hw02-main\\dbt_dwh\\logs', 'profiles_dir': 'C:\\Users\\d_tru\\.dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt run -m tag:hub', 'send_anonymous_usage_stats': 'True'}
+[0m19:05:56.812372 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '66acc2f7-0f77-4590-967a-4a4567892600', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026014B9C5C0>]}
+[0m19:05:56.883294 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '66acc2f7-0f77-4590-967a-4a4567892600', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002601582A4B0>]}
+[0m19:05:56.885448 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m19:05:57.087759 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m19:05:57.090212 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m19:05:57.091253 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '66acc2f7-0f77-4590-967a-4a4567892600', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026015D6BD10>]}
+[0m19:05:59.094264 [error] [MainThread]: Encountered an error:
+Compilation Error in model link_boarding_passes (models\raw_vault\links\link_boarding_passes.sql)
+  invalid syntax for function call expression
+    line 7
+      {{ automate_dv.link(
+[0m19:05:59.095870 [debug] [MainThread]: Command `dbt run` failed at 19:05:59.095870 after 2.71 seconds
+[0m19:05:59.096399 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260158DFE60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260170C1280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026015B92D50>]}
+[0m19:05:59.096928 [debug] [MainThread]: Flushing usage events
+[0m19:06:46.291299 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACFD63CF50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACFDBB58E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACFDDED2E0>]}
+
+
+============================== 19:06:46.297260 | 8c25ef47-33df-4597-acd2-cb8584f8a9b1 ==============================
+[0m19:06:46.297260 [info ] [MainThread]: Running with dbt=1.8.9
+[0m19:06:46.298491 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\d_tru\\.dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'C:\\Users\\d_tru\\Downloads\\D\\gruzi_suda_uchebu\\FTIAD_true\\DWH\\DWH_hw02-main\\dbt_dwh\\logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt run -m tag:hub', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m19:06:46.550893 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '8c25ef47-33df-4597-acd2-cb8584f8a9b1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACFE04E570>]}
+[0m19:06:46.613383 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '8c25ef47-33df-4597-acd2-cb8584f8a9b1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACFDDEF8F0>]}
+[0m19:06:46.615014 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m19:06:46.826904 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m19:06:46.828910 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m19:06:46.828910 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '8c25ef47-33df-4597-acd2-cb8584f8a9b1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACFDF103B0>]}
+[0m19:06:48.781596 [error] [MainThread]: Encountered an error:
+Compilation Error in model link_boarding_passes (models\raw_vault\links\link_boarding_passes.sql)
+  invalid syntax for function call expression
+    line 7
+      {{ automate_dv.link(
+[0m19:06:48.783221 [debug] [MainThread]: Command `dbt run` failed at 19:06:48.783221 after 2.68 seconds
+[0m19:06:48.783779 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACFDDEFE60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACFF455910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACFF438A70>]}
+[0m19:06:48.784378 [debug] [MainThread]: Flushing usage events
