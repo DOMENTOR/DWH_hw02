@@ -9,7 +9,11 @@
     "database.password": "postgres",
     "database.dbname": "postgres",
     "database.server.name": "pg-dev",
+<<<<<<< HEAD
     "table.include.list": "dwh_detailed.(.*)",
+=======
+    "table.include.list": "public.(.*)",
+>>>>>>> f7f6ddc8348452cefb78c77394f3189e6ad465ae
     "heartbeat.interval.ms": "5000",
     "slot.name": "dbname_debezium",
     "publication.name": "dbname_publication",
