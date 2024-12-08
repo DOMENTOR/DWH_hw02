@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: system
+    database: postgres
+    schema: system
+    tables:
+      - name: bookings
+      - name: tickets
+      - name: ticket_flights
+      - name: flights
+      - name: airports
+      - name: aircrafts
+      - name: seats
+      - name: boarding_passes
