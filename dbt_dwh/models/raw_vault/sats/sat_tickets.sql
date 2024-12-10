@@ -1,14 +1,12 @@
 {%- set source_model = "stg_tickets" -%}
 {%- set src_pk = "ticket_no" -%}
-{%- set src_nk = "ticket_no" -%}
-{%- set src_ldts = "book_ref" -%}
+{%- set src_hashdiff = "tickets_hashdiff" -%}
+{%- set src_payload = ["book_ref", "passenger_id", "passenger_name", "contact_data"] -%}
+{%- set src_eff = "EFFECTIVE_FROM" -%}
+{%- set src_ldts = "LOAD_DATE" -%}
 {%- set src_source = "RECORD_SOURCE" -%}
 
-{%- set columns = {
-    'passenger_id': 'VARCHAR(20)',
-    'passenger_name': 'TEXT',
-    'contact_data': 'JSONB'
-} -%}
-
-{{ automate_dv.satellite(src_pk=src_pk, src_nk=src_nk, src_ldts=src_ldts,
-                src_source=src_source, columns=columns, source_model=source_model) }}
+{{ automate_dv.sat(src_pk=src_pk, src_hashdiff=src_hashdiff,
+                src_payload=src_payload, src_eff=src_eff,
+                src_ldts=src_ldts, src_source=src_source,
+                source_model=source_model) }}

@@ -1,3 +1,4 @@
+  -- depends_on: {{ ref('raw_tickets') }}
 {%- set yaml_metadata -%}
 source_model: 'raw_tickets'
 derived_columns:

@@ -1,16 +1,12 @@
 {%- set source_model = "stg_airports" -%}
 {%- set src_pk = "airport_code" -%}
-{%- set src_nk = "airport_code" -%}
-{%- set src_ldts = "timezone" -%}
+{%- set src_hashdiff = "airports_hashdiff" -%}
+{%- set src_payload = ["airport_name", "city", "coordinates_lon", "coordinates_lat", "timezone"] -%}
+{%- set src_eff = "EFFECTIVE_FROM" -%}
+{%- set src_ldts = "LOAD_DATE" -%}
 {%- set src_source = "RECORD_SOURCE" -%}
 
-{%- set columns = {
-    'airport_name': 'TEXT',
-    'city': 'TEXT',
-    'coordinates_lon': 'DOUBLE PRECISION',
-    'coordinates_lat': 'DOUBLE PRECISION',
-    'timezone': 'TEXT'
-} -%}
-
-{{ automate_dv.satellite(src_pk=src_pk, src_nk=src_nk, src_ldts=src_ldts, 
-                src_source=src_source, columns=columns, source_model=source_model) }}
+{{ automate_dv.sat(src_pk=src_pk, src_hashdiff=src_hashdiff,
+                src_payload=src_payload, src_eff=src_eff,
+                src_ldts=src_ldts, src_source=src_source,
+                source_model=source_model) }}

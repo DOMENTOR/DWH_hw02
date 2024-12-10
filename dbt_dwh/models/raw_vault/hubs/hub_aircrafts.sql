@@ -1,3 +1,4 @@
+ -- depends_on: {{ ref('stg_airports') }}
 {%- set source_model = "stg_aircrafts" -%}
 {%- set src_pk = "aircraft_code" -%}
 {%- set src_nk = "aircraft_code" -%}

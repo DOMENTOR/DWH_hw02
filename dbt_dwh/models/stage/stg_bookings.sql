@@ -1,3 +1,4 @@
+  -- depends_on: {{ ref('raw_bookings') }}
 {%- set yaml_metadata -%}
 source_model: 'raw_bookings'
 derived_columns:

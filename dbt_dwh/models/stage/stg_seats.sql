@@ -1,3 +1,4 @@
+  -- depends_on: {{ ref('raw_seats') }}
 {%- set yaml_metadata -%}
 source_model: 'raw_seats'
 derived_columns:

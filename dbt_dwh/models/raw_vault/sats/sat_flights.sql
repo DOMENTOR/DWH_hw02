@@ -1,20 +1,12 @@
 {%- set source_model = "stg_flights" -%}
 {%- set src_pk = "flight_id" -%}
-{%- set src_nk = "flight_no" -%}
-{%- set src_ldts = "scheduled_departure" -%}
+{%- set src_hashdiff = "flights_hashdiff" -%}
+{%- set src_payload = ["flight_no", "scheduled_departure", "scheduled_arrival", "departure_airport", "arrival_airport", "status", "aircraft_code", "actual_departure", "actual_arrival"] -%}
+{%- set src_eff = "EFFECTIVE_FROM" -%}
+{%- set src_ldts = "LOAD_DATE" -%}
 {%- set src_source = "RECORD_SOURCE" -%}
 
-{%- set columns = {
-    'flight_no': 'CHAR(6)',
-    'scheduled_departure': 'TIMESTAMPTZ',
-    'scheduled_arrival': 'TIMESTAMPTZ',
-    'departure_airport': 'CHAR(3)',
-    'arrival_airport': 'CHAR(3)',
-    'status': 'VARCHAR(20)',
-    'aircraft_code': 'CHAR(3)',
-    'actual_departure': 'TIMESTAMPTZ',
-    'actual_arrival': 'TIMESTAMPTZ'
-} -%}
-
-{{ automate_dv.satellite(src_pk=src_pk, src_nk=src_nk, src_ldts=src_ldts,
-                src_source=src_source, columns=columns, source_model=source_model) }}
+{{ automate_dv.sat(src_pk=src_pk, src_hashdiff=src_hashdiff,
+                src_payload=src_payload, src_eff=src_eff,
+                src_ldts=src_ldts, src_source=src_source,
+                source_model=source_model) }}

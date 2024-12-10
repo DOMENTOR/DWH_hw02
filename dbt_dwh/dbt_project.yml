@@ -13,7 +13,7 @@ macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
 vars:
-  load_date: '1992-01-01'
+  load_date: '2024-11-11'
   # tpch_size: 10 #1, 10, 100, 1000, 10000
   
 models:
@@ -22,15 +22,15 @@ models:
       tags:
         - 'raw'
       materialized: view
-      +schema: dbt_detailed
+      +schema: dwh_detailed
     stage:
       tags:
         - 'stage'
       enabled: true
       materialized: view
-      +schema: dbt_detailed
+      +schema: dwh_detailed
     raw_vault:
-      +schema: dbt_detailed
+      +schema: dwh_detailed
       tags:
         - 'raw_vault'
       materialized: incremental

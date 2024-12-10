@@ -1,3 +1,4 @@
+  -- depends_on: {{ ref('raw_aircrafts') }}
 {%- set yaml_metadata -%}
 source_model: 'raw_aircrafts'
 derived_columns:

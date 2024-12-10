@@ -1,13 +1,12 @@
 {%- set source_model = "stg_boarding_passes" -%}
 {%- set src_pk = "ticket_no, flight_id" -%}
-{%- set src_nk = "ticket_no, flight_id" -%}
-{%- set src_ldts = "boarding_no" -%}
+{%- set src_hashdiff = "boarding_passes_hashdiff" -%}
+{%- set src_payload = ["boarding_no", "seat_no"] -%}
+{%- set src_eff = "EFFECTIVE_FROM" -%}
+{%- set src_ldts = "LOAD_DATE" -%}
 {%- set src_source = "RECORD_SOURCE" -%}
 
-{%- set columns = {
-    'boarding_no': 'INTEGER',
-    'seat_no': 'VARCHAR(4)'
-} -%}
-
-{{ automate_dv.satellite(src_pk=src_pk, src_nk=src_nk, src_ldts=src_ldts, 
-                src_source=src_source, columns=columns, source_model=source_model) }}
+{{ automate_dv.sat(src_pk=src_pk, src_hashdiff=src_hashdiff,
+                src_payload=src_payload, src_eff=src_eff,
+                src_ldts=src_ldts, src_source=src_source,
+                source_model=source_model) }}

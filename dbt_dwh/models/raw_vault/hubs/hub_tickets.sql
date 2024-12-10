@@ -1,3 +1,4 @@
+ -- depends_on: {{ ref('stg_seats') }}
 {%- set source_model = "stg_tickets" -%}
 {%- set src_pk = "ticket_no" -%}
 {%- set src_nk = "ticket_no" -%}

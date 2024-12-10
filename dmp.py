@@ -93,7 +93,6 @@ class DMPProcessor:
 # Пример использования
 if __name__ == "__main__":
     # Конфигурация подключения к Kafka
-<<<<<<< HEAD
     # kafka_config = {
     #     'bootstrap.servers': 'localhost:9092',
     #     'group.id': 'dmp-consumer',
@@ -105,18 +104,17 @@ if __name__ == "__main__":
         'group.id': 'dmp-consumer',
         'auto.offset.reset': 'earliest'
     }
-=======
-    kafka_config = {
-        'bootstrap.servers': 'localhost:9092',
-        'group.id': 'dmp-consumer',
-        'auto.offset.reset': 'earliest'
-    }
+    # kafka_config = {
+    #     'bootstrap.servers': 'localhost:9092',
+    #     'group.id': 'dmp-consumer',
+    #     'auto.offset.reset': 'earliest'
+    # }
 
->>>>>>> f7f6ddc8348452cefb78c77394f3189e6ad465ae
     # Инициализация процессора
     processor = DMPProcessor(
         config_path="dmp_config.yaml",
-        db_connection_string="postgresql://username:password@localhost:5432/postgres",
+        # db_connection_string="postgresql://username:password@localhost:5432/postgres",
+        db_connection_string="postgresql://postgres:postgres@localhost:5432/postgres",
         kafka_config=kafka_config
     )
 

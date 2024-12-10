@@ -1,3 +1,4 @@
+  -- depends_on: {{ ref('raw_boarding_passes') }}
 {%- set yaml_metadata -%}
 source_model: 'raw_boarding_passes'
 derived_columns:

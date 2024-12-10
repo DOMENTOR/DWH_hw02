@@ -1,3 +1,4 @@
+  -- depends_on: {{ ref('stg_bookings') }}
 {%- set source_model = "stg_bookings" -%}
 {%- set src_pk = "book_ref" -%}
 {%- set src_nk = "book_ref" -%}
