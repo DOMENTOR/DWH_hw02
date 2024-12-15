@@ -104,14 +104,12 @@ if __name__ == "__main__":
         'group.id': 'dmp-consumer',
         'auto.offset.reset': 'earliest'
     }
-    # kafka_config = {
-    #     'bootstrap.servers': 'localhost:9092',
-    #     'group.id': 'dmp-consumer',
-    #     'auto.offset.reset': 'earliest'
-    # }
+    import os
+    print(os.getcwd())
 
     # Инициализация процессора
     processor = DMPProcessor(
+        # config_path=".//DWH_hw02-main_LAST//dmp_config.yaml",
         config_path="dmp_config.yaml",
         # db_connection_string="postgresql://username:password@localhost:5432/postgres",
         db_connection_string="postgresql://postgres:postgres@localhost:5432/postgres",

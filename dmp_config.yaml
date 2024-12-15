@@ -70,3 +70,133 @@ tables:
       - source_system_id
       - created_at
       - version
+
+
+  hub_bookings:
+    schema: dwh_detailed
+    table: hub_bookings
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  hub_airports:
+    schema: dwh_detailed
+    table: hub_airports
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  hub_aircrafts:
+    schema: dwh_detailed
+    table: hub_aircrafts
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  hub_tickets:
+    schema: dwh_detailed
+    table: hub_tickets
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  hub_flights:
+    schema: dwh_detailed
+    table: hub_flights
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  hub_ticket_flights:
+    schema: dwh_detailed
+    table: hub_ticket_flights
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  hub_seats:
+    schema: dwh_detailed
+    table: hub_seats
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  hub_boarding_passes:
+    schema: dwh_detailed
+    table: hub_boarding_passes
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+
+  sat_bookings:
+    schema: dwh_detailed
+    table: sat_bookings
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  sat_airports:
+    schema: dwh_detailed
+    table: sat_airports
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  sat_aircrafts:
+    schema: dwh_detailed
+    table: sat_aircrafts
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  sat_tickets:
+    schema: dwh_detailed
+    table: sat_tickets
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  sat_flights:
+    schema: dwh_detailed
+    table: sat_flights
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  sat_ticket_flights:
+    schema: dwh_detailed
+    table: sat_ticket_flights
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  sat_seats:
+    schema: dwh_detailed
+    table: sat_seats
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
+
+  sat_boarding_passes:
+    schema: dwh_detailed
+    table: sat_boarding_passes
+    technical_fields:
+      - source_system_id
+      - created_at
+      - version
