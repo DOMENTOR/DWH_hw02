@@ -1,9 +1,9 @@
 {%- set source_model = "stg_tickets" -%}
 {%- set src_pk = "ticket_no" -%}
-{%- set src_hashdiff = "tickets_hashdiff" -%}
+{%- set src_hashdiff = "ticket_hashdiff" -%}
 {%- set src_payload = ["book_ref", "passenger_id", "passenger_name", "contact_data"] -%}
 {%- set src_eff = "EFFECTIVE_FROM" -%}
-{%- set src_ldts = "LOAD_DATE" -%}
+{%- set src_ldts = "LOAD_DATETIME" -%}
 {%- set src_source = "RECORD_SOURCE" -%}
 
 {{ automate_dv.sat(src_pk=src_pk, src_hashdiff=src_hashdiff,

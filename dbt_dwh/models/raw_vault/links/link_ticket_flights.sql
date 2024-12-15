@@ -1,8 +1,8 @@
   -- depends_on: {{ ref('stg_ticket_flights') }}
 {%- set source_model = "stg_ticket_flights" -%}
-{%- set src_pk = "ticket_no, flight_id" -%}
-{%- set src_fk = "ticket_no, flight_id" -%}
-{%- set src_ldts = "fare_conditions" -%}
+{%- set src_pk = ['ticket_no', 'flight_id'] -%}
+{%- set src_fk = ['ticket_no', 'flight_id'] -%}
+{%- set src_ldts = "LOAD_DATETIME" -%}
 {%- set src_source = "RECORD_SOURCE" -%}
 
 {{ automate_dv.link(

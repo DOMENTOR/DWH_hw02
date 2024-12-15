@@ -13,8 +13,7 @@ macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
 vars:
-  load_date: '2024-11-11'
-  # tpch_size: 10 #1, 10, 100, 1000, 10000
+  LOAD_DATETIME: "{{ run_started_at or now() }}"  # Динамическая дата загрузки
   
 models:
   dbt_dwh:

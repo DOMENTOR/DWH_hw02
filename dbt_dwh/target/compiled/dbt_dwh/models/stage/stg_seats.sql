@@ -73,5 +73,5 @@ columns_to_select AS (
 SELECT * FROM columns_to_select)
 
 SELECT *,
-       ('2024-11-11')::DATE AS LOAD_DATE
+       ('2024-12-15 15:13:34.811294+00:00')::DATE AS LOAD_DATETIME
 FROM staging

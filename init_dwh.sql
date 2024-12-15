@@ -6,7 +6,11 @@ CREATE TABLE IF NOT EXISTS dwh_detailed.bookings (
     total_amount NUMERIC(10, 2) NOT NULL,
     source_system_id INT,
     created_at TIMESTAMP DEFAULT NOW(),
-    version INT DEFAULT 1
+    version INT DEFAULT 1,
+    booking_hashdiff TEXT,
+    LOAD_DATETIME TIMESTAMP DEFAULT NOW(),
+    EFFECTIVE_FROM TIMESTAMP,
+    RECORD_SOURCE TEXT
 );
 
 CREATE TABLE IF NOT EXISTS dwh_detailed.airports (
@@ -18,7 +22,11 @@ CREATE TABLE IF NOT EXISTS dwh_detailed.airports (
     timezone TEXT NOT NULL,
     source_system_id INT,
     created_at TIMESTAMP DEFAULT NOW(),
-    version INT DEFAULT 1
+    version INT DEFAULT 1,
+    airport_hashdiff TEXT,
+    LOAD_DATETIME TIMESTAMP DEFAULT NOW(),
+    EFFECTIVE_FROM TIMESTAMP,
+    RECORD_SOURCE TEXT
 );
 
 CREATE TABLE IF NOT EXISTS dwh_detailed.aircrafts (
@@ -27,7 +35,11 @@ CREATE TABLE IF NOT EXISTS dwh_detailed.aircrafts (
     range INT NOT NULL,
     source_system_id INT,
     created_at TIMESTAMP DEFAULT NOW(),
-    version INT DEFAULT 1
+    version INT DEFAULT 1,
+    aircraft_hashdiff TEXT,
+    LOAD_DATETIME TIMESTAMP DEFAULT NOW(),
+    EFFECTIVE_FROM TIMESTAMP,
+    RECORD_SOURCE TEXT
 );
 
 CREATE TABLE IF NOT EXISTS dwh_detailed.tickets (
@@ -38,7 +50,11 @@ CREATE TABLE IF NOT EXISTS dwh_detailed.tickets (
     contact_data JSONB,
     source_system_id INT,
     created_at TIMESTAMP DEFAULT NOW(),
-    version INT DEFAULT 1
+    version INT DEFAULT 1,
+    ticket_hashdiff TEXT,
+    LOAD_DATETIME TIMESTAMP DEFAULT NOW(),
+    EFFECTIVE_FROM TIMESTAMP,
+    RECORD_SOURCE TEXT
 );
 
 CREATE TABLE IF NOT EXISTS dwh_detailed.flights (
@@ -54,7 +70,11 @@ CREATE TABLE IF NOT EXISTS dwh_detailed.flights (
     actual_arrival TIMESTAMP,
     source_system_id INT,
     created_at TIMESTAMP DEFAULT NOW(),
-    version INT DEFAULT 1
+    version INT DEFAULT 1,
+    flight_hashdiff TEXT,
+    LOAD_DATETIME TIMESTAMP DEFAULT NOW(),
+    EFFECTIVE_FROM TIMESTAMP,
+    RECORD_SOURCE TEXT
 );
 
 CREATE TABLE IF NOT EXISTS dwh_detailed.ticket_flights (
@@ -65,7 +85,11 @@ CREATE TABLE IF NOT EXISTS dwh_detailed.ticket_flights (
     source_system_id INT,
     created_at TIMESTAMP DEFAULT NOW(),
     version INT DEFAULT 1,
-    PRIMARY KEY (ticket_no, flight_id)
+    PRIMARY KEY (ticket_no, flight_id),
+    ticket_flight_hashdiff TEXT,
+    LOAD_DATETIME TIMESTAMP DEFAULT NOW(),
+    EFFECTIVE_FROM TIMESTAMP,
+    RECORD_SOURCE TEXT
 );
 
 CREATE TABLE IF NOT EXISTS dwh_detailed.seats (
@@ -75,7 +99,11 @@ CREATE TABLE IF NOT EXISTS dwh_detailed.seats (
     source_system_id INT,
     created_at TIMESTAMP DEFAULT NOW(),
     version INT DEFAULT 1,
-    PRIMARY KEY (aircraft_code, seat_no)
+    PRIMARY KEY (aircraft_code, seat_no),
+    seat_hashdiff TEXT,
+    LOAD_DATETIME TIMESTAMP DEFAULT NOW(),
+    EFFECTIVE_FROM TIMESTAMP,
+    RECORD_SOURCE TEXT
 );
 
 CREATE TABLE IF NOT EXISTS dwh_detailed.boarding_passes (
@@ -86,5 +114,9 @@ CREATE TABLE IF NOT EXISTS dwh_detailed.boarding_passes (
     source_system_id INT,
     created_at TIMESTAMP DEFAULT NOW(),
     version INT DEFAULT 1,
-    PRIMARY KEY (ticket_no, flight_id)
+    PRIMARY KEY (ticket_no, flight_id),
+    boarding_pass_hashdiff TEXT,
+    LOAD_DATETIME TIMESTAMP DEFAULT NOW(),
+    EFFECTIVE_FROM TIMESTAMP,
+    RECORD_SOURCE TEXT
 );

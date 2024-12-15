@@ -1,8 +1,8 @@
   -- depends_on: {{ ref('stg_flights') }}
 {%- set source_model = "stg_flights" -%}
-{%- set src_pk = "flight_id, departure_airport, arrival_airport" -%}
-{%- set src_fk = "departure_airport, arrival_airport" -%}
-{%- set src_ldts = "scheduled_departure" -%}
+{%- set src_pk = ['flight_id', 'departure_airport', 'arrival_airport'] -%}
+{%- set src_fk = ['departure_airport', 'arrival_airport'] -%}
+{%- set src_ldts = "LOAD_DATETIME" -%}
 {%- set src_source = "RECORD_SOURCE" -%}
 
 {{ automate_dv.link(

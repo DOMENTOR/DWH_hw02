@@ -3,18 +3,15 @@
     
 
 WITH row_rank_1 AS (
-    SELECT DISTINCT ON (rr.book_ref) rr.book_ref, rr.book_date, rr.RECORD_SOURCE
+    SELECT DISTINCT ON (rr.book_ref) rr.book_ref, rr.LOAD_DATETIME, rr.RECORD_SOURCE
     FROM "postgres"."dwh_detailed_dwh_detailed"."stg_bookings" AS rr
     WHERE rr.book_ref IS NOT NULL
-    ORDER BY rr.book_ref, rr.book_date
+    ORDER BY rr.book_ref, rr.LOAD_DATETIME
 ),
 
 records_to_insert AS (
-    SELECT a.book_ref, a.book_date, a.RECORD_SOURCE
+    SELECT a.book_ref, a.LOAD_DATETIME, a.RECORD_SOURCE
     FROM row_rank_1 AS a
-    LEFT JOIN "postgres"."dwh_detailed_dwh_detailed"."hub_bookings" AS d
-    ON a.book_ref = d.book_ref
-    WHERE d.book_ref IS NULL
 )
 
 SELECT * FROM records_to_insert

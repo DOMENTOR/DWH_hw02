@@ -29,5 +29,5 @@ WITH staging AS ({{ automate_dv.stage(include_source_columns=true,
                   ranked_columns=none) }})
 
 SELECT *,
-       ('{{ var('load_date') }}')::DATE AS LOAD_DATE
+       ('{{ var('LOAD_DATETIME') }}')::DATE AS LOAD_DATETIME
 FROM staging

@@ -3,18 +3,15 @@
     
 
 WITH row_rank_1 AS (
-    SELECT DISTINCT ON (rr.aircraft_code) rr.aircraft_code, rr.model, rr.RECORD_SOURCE
+    SELECT DISTINCT ON (rr.aircraft_code) rr.aircraft_code, rr.LOAD_DATETIME, rr.RECORD_SOURCE
     FROM "postgres"."dwh_detailed_dwh_detailed"."stg_aircrafts" AS rr
     WHERE rr.aircraft_code IS NOT NULL
-    ORDER BY rr.aircraft_code, rr.model
+    ORDER BY rr.aircraft_code, rr.LOAD_DATETIME
 ),
 
 records_to_insert AS (
-    SELECT a.aircraft_code, a.model, a.RECORD_SOURCE
+    SELECT a.aircraft_code, a.LOAD_DATETIME, a.RECORD_SOURCE
     FROM row_rank_1 AS a
-    LEFT JOIN "postgres"."dwh_detailed_dwh_detailed"."hub_aircrafts" AS d
-    ON a.aircraft_code = d.aircraft_code
-    WHERE d.aircraft_code IS NULL
 )
 
 SELECT * FROM records_to_insert
