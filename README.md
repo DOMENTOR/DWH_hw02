@@ -67,3 +67,51 @@ dbt run -m tag:hub
 ![image_2024-12-11_00-07-49](https://github.com/user-attachments/assets/b9c88163-199c-4c1b-92ef-493b3b7ecc2c)
 
 
+
+#### Директория: DWH_hw02-main
+Команда:
+```
+docker-compose up -d
+```
+Перед запуском нужно удалить data, data-slave.
+![alt text](image-10.png)
+
+#### Директория: DWH_hw02-main\dbt_dwh
+Команды:
+```
+dbt run -m tag:raw
+dbt run -m tag:stage
+dbt run -m tag:hub
+dbt run -m tag:links
+dbt run -m tag:satellite
+```
+
+Опционально (если папка DWH_hw02-main\dbt_dwh\dbt_packages\automate_dv пуста):
+```
+dbt deps
+```
+
+![alt text](image-6.png)
+![alt text](image-7.png)
+![alt text](image-8.png)
+![alt text](image-9.png)
+
+
+#### Директория: DWH_hw02-main\debezium
+Команды (Linux-like):
+```
+chmod +x commands.sh
+
+./commands.sh
+```
+
+Команды (Windows PowerShell):
+```
+Invoke-WebRequest -Uri "http://localhost:8083/connectors" -Method POST -Headers @{ "Content-Type" = "application/json"; "Accept" = "application/json" } -Body (Get-Content -Raw "debezium.json")
+
+Invoke-WebRequest -Uri "http://localhost:8082/consumers/dwh_group" -Method POST -Headers @{ "Content-Type" = "application/vnd.kafka.v2+json"; "Accept" = "application/vnd.kafka.v2+json" } -Body '{"name": "dwh_group", "format": "binary", "auto.offset.reset": "latest"}'
+
+python add_sink_connectors.py
+```
+
+![alt text](image-5.png)
